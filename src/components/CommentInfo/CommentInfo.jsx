@@ -1,12 +1,17 @@
 export const CommentInfo = ({ comment }) => (
   <div className="CommentInfo">
     <div className="CommentInfo__title">
-      <strong className="CommentInfo__name">{comment.name}</strong>
+      <strong className="CommentInfo__name">
+        {comment.user ? comment.user.name : comment.name}
+      </strong>
 
       {' by '}
 
-      <a className="CommentInfo__email" href={`mailto:${comment.email}`}>
-        {comment.email}
+      <a
+        className="CommentInfo__email"
+        href={`mailto:${comment.user ? comment.user.email : comment.email}`}
+      >
+        {comment.user ? comment.user.email : comment.email}
       </a>
     </div>
 

@@ -14,10 +14,7 @@ function getCommentsForPost(postId) {
     .filter(comment => comment.postId === postId)
     .map(comment => ({
       ...comment,
-      user: {
-        name: comment.name,
-        email: comment.email,
-      },
+      user: usersFromServer.find(user => user.email === comment.email),
     }));
 }
 
